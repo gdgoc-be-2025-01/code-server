@@ -29,28 +29,28 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# # Create and activate a Python virtual environment
-# RUN python3 -m venv /opt/venv
-# ENV PATH="/opt/venv/bin:$PATH"
+# Create and activate a Python virtual environment
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
-# # Install Django and common packages
-# RUN pip install --no-cache-dir --upgrade pip && \
-#     pip install --no-cache-dir \
-#     django \
-#     djangorestframework \
-#     django-crispy-forms \
-#     django-debug-toolbar \
-#     psycopg2-binary \
-#     mysqlclient \
-#     pillow \
-#     pytest \
-#     pytest-django \
-#     coverage \
-#     black \
-#     flake8 \
-#     isort \
-#     python-dotenv \
-#     gunicorn
+# Install Django and common packages
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir \
+    django \
+    djangorestframework \
+    django-crispy-forms \
+    django-debug-toolbar \
+    psycopg2-binary \
+    mysqlclient \
+    pillow \
+    pytest \
+    pytest-django \
+    coverage \
+    black \
+    flake8 \
+    isort \
+    python-dotenv \
+    gunicorn
 
 # Install VS Code extensions for Django development
 RUN /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension ms-python.python
