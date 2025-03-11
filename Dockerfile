@@ -53,7 +53,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
     gunicorn
 
 # Install VS Code extensions for Django development
-RUN /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension ms-python.python
+RUN /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension ms-python.python \
+    && /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension tonybaloney.vscode-pets
 
 # Recover .bashrc
 RUN cp /etc/skel/.bashrc /config
