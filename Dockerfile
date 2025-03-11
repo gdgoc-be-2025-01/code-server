@@ -50,5 +50,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 RUN mkdir -p /config/workspace/.vscode
 COPY settings.json /config/workspace/.vscode/
 
+# chown all the files to the app user
+RUN chown -R abc:abc /config/workspace
+
 # Set the working directory
 WORKDIR /config/workspace
