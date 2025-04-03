@@ -50,11 +50,13 @@ RUN pip install --no-cache-dir --upgrade pip && \
     flake8 \
     isort \
     python-dotenv \
-    gunicorn
+    gunicorn \
+    requests
 
 # Install VS Code extensions for Django development
 RUN /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension ms-python.python \
-    && /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension tonybaloney.vscode-pets
+    && /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension tonybaloney.vscode-pets \
+    && /app/code-server/bin/code-server --extensions-dir /config/extensions --install-extension ms-python.black-formatter
 
 # Recover .bashrc
 RUN cp /etc/skel/.bashrc /config
