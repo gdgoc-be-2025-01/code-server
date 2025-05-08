@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     zlib1g-dev \
     cloudflared \
+    vim \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
